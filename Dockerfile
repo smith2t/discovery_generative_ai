@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9.18-slim
+FROM --platform=linux/amd64 python:3.9.17-slim
 
 # Set environment varibles
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -10,7 +10,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends gcc python3-dev
 
 # Install poetry
-RUN pip install "poetry==1.5.1"
+RUN pip install "poetry==1.7.1"
 
 # Set the working directory in the Docker image
 WORKDIR /app
